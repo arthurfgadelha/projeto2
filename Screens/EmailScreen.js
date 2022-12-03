@@ -19,17 +19,22 @@ export default function EmailScreen ({ route }){
 
     function renderItem ({item}) {
         return <View style={styles.userEmail}>
-                    <View style={styles.tituloEmail}>
-                        <Text>{item.tittle}</Text>
-                    </View>
-                    <View style={styles.infoRemetente}>
-                        <Image style={styles.imgPerfil} source={{uri: item.picture}}/>
-                        <Text>De {item.to} Para {item.from}</Text>
-                        <Text>{item.time}</Text>
-                    </View>
-                    <View style={styles.assunto}>
-                        <Text>{item.body}</Text>
-                    </View>
+                         <View style={styles.container1}>
+                            <Text style={styles.tituloEmail}>{item.tittle}</Text> 
+                        </View>
+                        <View style={styles.container2}>
+                            <Image style={styles.imgPerfil} source={{uri: item.picture}}/>
+                            <View style={styles.container5}>
+                                <Text style={styles.tituloEmail}>{item.to}</Text>
+                                <Text>Para {item.from}</Text>
+                            </View>
+                            <View style={styles.container4}>
+                                <Text>{item.time}</Text>
+                            </View>
+                        </View>
+                        <View style={styles.container3}>
+                            <Text>{item.body}</Text>
+                        </View>
         </View>
     }
 
@@ -50,10 +55,13 @@ export default function EmailScreen ({ route }){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+    }, 
+    userEmail: {
+        height: 'auto',
     },
     tituloEmail: {
-        height: 100,
-        backgroundColor: 'red',
+      justifyContent:'center',
+      fontWeight: 'bold',
     },
     infoRemetente: {
         height: 60,
@@ -65,18 +73,35 @@ const styles = StyleSheet.create({
         backgroundColor: 'blue',
         alignItems: 'center',
     },
-    titulo: {
-        fontWeight: 'bold',
-    },
-    userEmail: {
-        height: 'auto',
-        flexDirection: 'row',
-    },
     imgPerfil: {
         height: 50,
         width: 50,
         margin: 5,
         borderRadius: 25,
     },
+    container1: {
+        flex: 1,
+        padding: 5,
+        alignItems: 'center',
+    },
+    container2: {
+        flex: 1,
+        flexDirection: 'row',
+       
+    },
+    container3: {
+        flex: 1,
+        alignItems: 'center',
+        padding: 5,
+    },
+    container4: {
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        flex: 1,
+        padding: 10,
+    },
+    container5: {
+        padding: 5,
+    }
 
 });
