@@ -1,9 +1,8 @@
-import React, { useEffect, useState} from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { auth } from '../../config/firebase';
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { register } from '../services/requestsFirebase';
 
 import Logo from '../../assets/logo.svg'
 import SingImput from '../components/SingImput';
@@ -11,6 +10,7 @@ import CustomButton from '../components/CustomButton';
 import PersonIcon from '../../assets/person.svg'
 import EmailIcon from '../../assets/email.svg'
 import LockIcon from '../../assets/lock.svg'
+
 
 
 export default function SingIn() {
@@ -21,15 +21,11 @@ export default function SingIn() {
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
 
-  useEffect(() => {
-    createUserWithEmailAndPassword(auth, login, password)
-  .then((userCredential) => {
-    console.log(userCredential)
-  })
-  .catch((error) => {
-    console.log(error)
-  });
-  }, [])
+  async function registerUser(){
+    await register(login, password)
+    setLogin('')
+    setPassword('')
+  }
 
   const goToRegistration = () => {
     navigation.reset({
@@ -42,7 +38,7 @@ export default function SingIn() {
           <Logo width="100%" height = "180"/>
           <SingImput
             IconSvg={PersonIcon}
-            textplaceholder = 'Digite seu ne'
+            textplaceholder = 'Digite seu nome'
             value = {name}
             onChangeText = {setName}
           />
@@ -61,6 +57,7 @@ export default function SingIn() {
           />
           <CustomButton 
             textlabel={'CADASTRAR'}
+            onPress={() => registerUser()}
           />
           <TouchableOpacity style = {styles.registration} onPress={goToRegistration}>
             <Text>Já possui conta?</Text>
