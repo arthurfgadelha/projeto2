@@ -1,6 +1,9 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import { StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import { auth } from '../../config/firebase';
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import Logo from '../../assets/logo.svg'
 import SingImput from '../components/SingImput';
@@ -18,6 +21,16 @@ export default function SingIn() {
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
 
+  useEffect(() => {
+    createUserWithEmailAndPassword(auth, login, password)
+  .then((userCredential) => {
+    console.log(userCredential)
+  })
+  .catch((error) => {
+    console.log(error)
+  });
+  }, [])
+
   const goToRegistration = () => {
     navigation.reset({
       routes: [{name: 'SingIn'}]
@@ -29,7 +42,7 @@ export default function SingIn() {
           <Logo width="100%" height = "180"/>
           <SingImput
             IconSvg={PersonIcon}
-            textplaceholder = 'Digite seu nome'
+            textplaceholder = 'Digite seu ne'
             value = {name}
             onChangeText = {setName}
           />
