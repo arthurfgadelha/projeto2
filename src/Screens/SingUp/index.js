@@ -26,14 +26,14 @@ export default function SingUp() {
 
   async function registerUser(){
     if(email == ''){
-      setMenssageError('Informe seu Email')
-      setStatusError(email)
+        setMenssageError('Informe seu Email')
+        setStatusError(email)
     } else if(password == ''){
-      setMenssageError('Digite sua senha')
-      setStatusError(password)
+        setMenssageError('Digite sua senha')
+        setStatusError(password)
     } else{
-      const result = await register(email, password)
-      setStatusError('firebase')
+        const result = await register(email, password)
+        setStatusError('firebase')
       if(result == 'sucesso'){
         setMenssageError('Usuario criado com sucesso')
         setEmail('')
@@ -74,11 +74,11 @@ export default function SingUp() {
             onChangeText = {setPassword}
             password = {true}
           />
-          {/*<Alert 
+          <Alert 
             mensagem={messageError}
             error={statusError == 'firebase'}
             setError={setStatusError}
-  />*/}
+           />
           <CustomButton 
             textlabel={'CADASTRAR'}
             onPress={() => registerUser()}

@@ -1,8 +1,7 @@
 import React from "react";
 import { Snackbar } from "react-native-paper";
 
-export function Alert({ mensagem, error=false, setError }){
-
+export default function Alert({ mensagem, error=false, setError }){
   return (
     <Snackbar
       visible={error}
