@@ -5,7 +5,7 @@ function errosFirebase(error){
   let mensagem = '';
   switch(error.code) {
     case AuthErrorCodes.EMAIL_EXISTS:
-      mensagem = "Esse email já está em uso";
+      mensagem = "Email já existe";
       break;
     case AuthErrorCodes.INVALID_EMAIL:
       mensagem = "Email inválido";
@@ -23,6 +23,7 @@ export async function register(login, password) {
   const resultado = await createUserWithEmailAndPassword(auth, login, password)
   .then((dadosDoUsuario) => {
     console.log(dadosDoUsuario)
+    return "sucesso"
   })
   .catch((error) => {
     console.log(error);

@@ -2,7 +2,7 @@ import React from "react";
 
 import { createStackNavigator } from "@react-navigation/stack";
 
-import Preload from "../Screens/PreLoad";
+import PreLoad from "../Screens/PreLoad"
 import SingIn from "../Screens/SingIn";
 import SingUp from "../Screens/SingUp";
 
@@ -13,7 +13,7 @@ export default function MainStack(){
       <Stack.Navigator
         initialRouteName="Preload"
       >
-        <Stack.Screen name = "Preload" component={Preload} options= {{ headerShown: false}}/>
+        <Stack.Screen name = "Preload" component={PreLoad} options= {{ headerShown: false}}/>
         <Stack.Screen name = "SingIn" component={SingIn} options= {{ headerShown: false}}/>
         <Stack.Screen name = "SingUp" component={SingUp} options= {{ headerShown: false}}/>
       </Stack.Navigator>

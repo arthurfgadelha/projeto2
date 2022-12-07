@@ -1,8 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
-import { StyleSheet ,View, Text, FlatList, Image, TouchableOpacity } from "react-native";
+import { View, Text, FlatList, Image, TouchableOpacity } from "react-native";
 import { FontAwesome } from '@expo/vector-icons';
-
+import styles from "./styles";
 
 export default function HomeScreen ({navigation}){
     const [listEmail, setListEmail] = useState([]);
@@ -46,42 +46,3 @@ export default function HomeScreen ({navigation}){
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#0ff',
-    },
-    userEmail: {
-        height: 'auto',
-        flexDirection: 'row',
-    },
-    imgPerfil: {
-        height: 50,
-        width: 50,
-        margin: 5,
-        borderRadius: 25,
-    },
-    textBox: {
-        flex: 1,
-        padding: 5,
-    },
-    nome: {
-        fontWeight: 'bold',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-    titulo: {
-        fontWeight: 'bold',
-    },
-    resumo: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-    favorito: {
-        color: 'yellow',
-    },
-    Nofavorito: {
-        color: 'gray',
-    },
-});
