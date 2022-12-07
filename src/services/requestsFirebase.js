@@ -1,5 +1,8 @@
 import { auth } from "../../config/firebase"
-import { createUserWithEmailAndPassword, AuthErrorCodes } from "firebase/auth/react-native";
+import { 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword,
+  AuthErrorCodes } from "firebase/auth/react-native";
 
 function errosFirebase(error){
   let mensagem = '';
@@ -29,6 +32,19 @@ export async function register(login, password) {
     console.log(error);
     return errosFirebase(error)
   });
+  return resultado
+}
 
+export async function loginto(login, password) {
+  const resultado = await signInWithEmailAndPassword(auth, login, password)
+  .then((dadosDoUsuario) => {
+    console.log(dadosDoUsuario)
+    return "sucesso"
+  })
+  .catch((error) => {
+    console.log(error);
+    //return errosFirebase(error)
+    return "erro"
+  });
   return resultado
 }
