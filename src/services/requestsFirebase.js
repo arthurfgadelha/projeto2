@@ -22,8 +22,8 @@ function errosFirebase(error){
   return mensagem;
 }
 
-export async function register(login, password) {
-  const resultado = await createUserWithEmailAndPassword(auth, login, password)
+export async function register(name, login, password) {
+  const resultado = await createUserWithEmailAndPassword(auth, login, password, name)
   .then((dadosDoUsuario) => {
     console.log(dadosDoUsuario)
     return "sucesso"

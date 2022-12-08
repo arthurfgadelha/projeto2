@@ -3,20 +3,16 @@ import { StyleSheet} from "react-native";
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0ff',
+        backgroundColor: '#63C2D1',
     },
     header: {
         flexDirection: 'row',
-        backgroundColor: 'red',
+        backgroundColor: '#FFF',
         width: '100%',
         height: 50,
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingHorizontal: 15,
-    },
-    logoutButton:{
-        justifyContent: 'flex-end',
-        marginEnd: 20
     },
     userEmail: {
         height: 'auto',

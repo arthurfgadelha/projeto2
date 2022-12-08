@@ -29,7 +29,7 @@ export default function SingUp() {
         setMenssageError('Digite sua senha')
         setStatusError(password)
     } else{
-        const result = await register(email, password)
+        const result = await register(name, email, password)
         setStatusError('firebase')
       if(result == 'sucesso'){
         setMenssageError('Usuario criado com sucesso')
