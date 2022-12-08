@@ -31,7 +31,7 @@ export default function SingIn() {
         setStatusError('firebase')
         setMenssageError('Usuário ou senha inválidos')
       } else{
-        navigation.navigate('HomeScreen')
+        navigation.replace('HomeScreen')
         setEmail('')
         setPassword('')
       }
