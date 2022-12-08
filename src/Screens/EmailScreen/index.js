@@ -19,24 +19,26 @@ export default function EmailScreen ({ route }){
 
 
     function renderItem ({item}) {
-        return <View style={styles.userEmail}>
-                         <View style={styles.container1}>
-                            <Text style={styles.tituloEmail}>{item.tittle}</Text> 
-                        </View>
-                        <View style={styles.container2}>
-                            <Image style={styles.imgPerfil} source={{uri: item.picture}}/>
-                            <View style={styles.container5}>
-                                <Text style={styles.tituloEmail}>{item.to}</Text>
-                                <Text>Para {item.from}</Text>
-                            </View>
-                            <View style={styles.container4}>
-                                <Text>{item.time}</Text>
-                            </View>
-                        </View>
-                        <View style={styles.container3}>
-                            <Text>{item.body}</Text>
-                        </View>
+        return (
+            <View style={styles.userEmail}>
+                <View style={styles.container1}>
+                    <Text style={styles.tituloEmail}>{item.tittle}</Text> 
+                </View>
+                <View style={styles.container2}>
+                    <Image style={styles.imgPerfil} source={{uri: item.picture}}/>
+                    <View style={styles.container5}>
+                        <Text style={styles.tituloEmail}>{item.to}</Text>
+                        <Text>Para {item.from}</Text>
+                    </View>
+                    <View style={styles.container4}>
+                        <Text>{item.time}</Text>
+                    </View>
+                </View>
+                <View style={styles.container3}>
+                    <Text>{item.body}</Text>
+                </View>
         </View>
+        )
     }
 
 

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import styles from './styles'
-
 import { register } from '../../services/requestsFirebase';
 import Alert from '../../components/Alert'
 import Logo from '../../../assets/logo.svg'
@@ -11,8 +10,6 @@ import EmailIcon from '../../../assets/email.svg'
 import LockIcon from '../../../assets/lock.svg'
 import SingImput from '../../components/SingImput';
 import CustomButton from '../../components/CustomButton'
-
-
 
 export default function SingUp() {
 

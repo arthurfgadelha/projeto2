@@ -7,14 +7,6 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
       },
-      textImput: {
-        width: 200,
-        height: 50,
-        borderWidth: 1,
-        borderRadius: 30,
-        marginTop: 5,
-        padding: 10,
-      },
       registration: {
         flexDirection: 'row',
         marginTop: 35,

@@ -3,7 +3,6 @@ import { View, ActivityIndicator} from 'react-native';
 import { useNavigation } from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './styles';
-
 import Logo from '../../../assets/logo.svg'
 
 export default function Preload() {

@@ -2,10 +2,8 @@ import React, { useState} from 'react';
 import { View, Text, TouchableOpacity} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import styles from './styles';
-
+import Alert from '../../components/Alert'
 import Logo from '../../../assets/logo.svg'
-import EmailIcon from '../../../assets/email.svg'
-import LockIcon from '../../../assets/lock.svg'
 import SingImput from '../../components/SingImput';
 import CustomButton from '../../components/CustomButton';
 import { loginto } from '../../services/requestsFirebase';
@@ -50,7 +48,6 @@ export default function SingIn() {
       <View style = {styles.container}>
           <Logo width="100%" height = "180"/>
           <SingImput
-            IconSvg={EmailIcon}
             textplaceholder = 'Digite seu e-mail'
             value = {email}
             onChangeText = {setEmail}
@@ -58,13 +55,17 @@ export default function SingIn() {
             messageError = {messageError}
           />
           <SingImput
-            IconSvg={LockIcon}
             textplaceholder = 'Digite sua senha'
             value = {password}
             onChangeText = {setPassword}
-            password = {true}
+            secureTextEntry
             error = {statusError == 'password'}
             messageError = {messageError}
+          />
+          <Alert 
+            mensagem={messageError}
+            error={statusError == 'firebase'}
+            setError={setStatusError}
           />
           <CustomButton 
             textlabel={'LOGIN'}
