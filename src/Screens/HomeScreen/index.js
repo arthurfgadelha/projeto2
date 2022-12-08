@@ -1,11 +1,13 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useEffect, useState } from "react";
-import { View, Text, FlatList, Image, TouchableOpacity } from "react-native";
+import { View, Text, FlatList, Image, TouchableOpacity, StatusBar } from "react-native";
 import { FontAwesome } from '@expo/vector-icons';
 import styles from "./styles";
+import LogoutButton from "../../components/Logout";
+import { auth } from '../../../config/firebase'
 
 export default function HomeScreen ({navigation}){
     const [listEmail, setListEmail] = useState([]);
+    const user = auth.currentUser
     
     useEffect(() => {
         async function getData () {
@@ -15,6 +17,11 @@ export default function HomeScreen ({navigation}){
         }
         getData();
     }, []);
+
+    function userLogout(){
+        auth.signOut()
+        navigation.replace('SingIn')
+    }
 
 
     function renderItem({item}){
@@ -37,6 +44,10 @@ export default function HomeScreen ({navigation}){
     return (
         <View style={styles.container}>
              <StatusBar style="auto"/>
+             <View style = {styles.header}>
+                <Text>Usuário: {user.email}</Text>
+                <LogoutButton style = {styles.LogoutButton} logout = {userLogout}/>
+             </View>
              <FlatList
                 data={listEmail}
                 renderItem={renderItem}

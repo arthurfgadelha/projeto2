@@ -18,7 +18,7 @@ export default function MainStack(){
         <Stack.Screen name = "Preload" component={PreLoad} options= {{ headerShown: false}}/>
         <Stack.Screen name = "SingIn" component={SingIn} options= {{ headerShown: false}}/>
         <Stack.Screen name = "SingUp" component={SingUp} options= {{ headerShown: false}}/>
-        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ title: 'Email'}}/>
+        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false}}/>
         <Stack.Screen name="EmailScreen" component={EmailScreen} options={{ title: 'conteudo Email'}}/>
       </Stack.Navigator>
   )
